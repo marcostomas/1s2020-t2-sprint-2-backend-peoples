@@ -11,7 +11,6 @@ namespace Senai.Peoples.WebApi.Domains
 
         public string NomeFuncionario { get; set; }
 
-        public string SubrenomeFuncionario { get; set; }
-
+        public string SobrenomeFuncionario { get; set; }
     }
 }
