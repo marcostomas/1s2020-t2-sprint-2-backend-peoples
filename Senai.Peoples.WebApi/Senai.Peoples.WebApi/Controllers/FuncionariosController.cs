@@ -25,7 +25,7 @@ namespace Senai.Peoples.WebApi.Controllers
         // GET: api/Funcionarios
         //Read
         [HttpGet]
-        public IEnumerable<Funcionarios> Get()
+        public IEnumerable<FuncionariosDomain> Get()
         {
             return _funcionarioRepository.Listar();
         }
@@ -35,7 +35,7 @@ namespace Senai.Peoples.WebApi.Controllers
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
-            Funcionarios funcionarioBuscado = _funcionarioRepository.BuscarPorId(id);
+            FuncionariosDomain funcionarioBuscado = _funcionarioRepository.BuscarPorId(id);
 
             if(funcionarioBuscado == null)
             {
@@ -50,7 +50,7 @@ namespace Senai.Peoples.WebApi.Controllers
         [HttpGet("Buscar/{nome}")]
         public IActionResult GetByName(string nome)
         {
-            Funcionarios funcionarioBuscado = _funcionarioRepository.BuscarPorNome(nome);
+            FuncionariosDomain funcionarioBuscado = _funcionarioRepository.BuscarPorNome(nome);
 
             if (funcionarioBuscado == null)
             {
@@ -65,7 +65,7 @@ namespace Senai.Peoples.WebApi.Controllers
         [HttpGet("Buscar/{nome}")]
         public IActionResult GetByFullName(string nomeCompleto)
         {
-            Funcionarios funcionarioBuscado = _funcionarioRepository.BuscarPorNomeCompleto(nomeCompleto);
+            FuncionariosDomain funcionarioBuscado = _funcionarioRepository.BuscarPorNomeCompleto(nomeCompleto);
 
             if (funcionarioBuscado == null)
             {
@@ -78,7 +78,7 @@ namespace Senai.Peoples.WebApi.Controllers
         // POST: api/Funcionarios
         //Create
         [HttpPost]
-        public IActionResult Post(Funcionarios novoFuncionario)
+        public IActionResult Post(FuncionariosDomain novoFuncionario)
         {
             _funcionarioRepository.Cadastrar(novoFuncionario);
 
@@ -88,9 +88,9 @@ namespace Senai.Peoples.WebApi.Controllers
         // PUT: api/Funcionarios/5
         //Update
         [HttpPut]
-        public IActionResult PutIdCorpo(Funcionarios funcionarioAtualizado)
+        public IActionResult PutIdCorpo(FuncionariosDomain funcionarioAtualizado)
         {
-            Funcionarios funcionarioBuscado = _funcionarioRepository.BuscarPorId(funcionarioAtualizado.idFuncionario);
+            FuncionariosDomain funcionarioBuscado = _funcionarioRepository.BuscarPorId(funcionarioAtualizado.idFuncionario);
 
             if(funcionarioBuscado != null)
             {
@@ -119,9 +119,9 @@ namespace Senai.Peoples.WebApi.Controllers
         // PUT: api/Funcionarios/5
         //Delete
         [HttpPut("{id}")]
-        public IActionResult PutIdUrl(int id, Funcionarios funcionarioAtualizado)
+        public IActionResult PutIdUrl(int id, FuncionariosDomain funcionarioAtualizado)
         {
-            Funcionarios funcionarioBuscado = _funcionarioRepository.BuscarPorId(id);
+            FuncionariosDomain funcionarioBuscado = _funcionarioRepository.BuscarPorId(id);
 
             if (funcionarioBuscado == null)
             {

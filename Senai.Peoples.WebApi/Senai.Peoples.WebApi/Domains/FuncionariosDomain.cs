@@ -5,12 +5,16 @@ using System.Threading.Tasks;
 
 namespace Senai.Peoples.WebApi.Domains
 {
-    public class Funcionarios
+    public class FuncionariosDomain
     {
         public int idFuncionario { get; set; }
 
         public string NomeFuncionario { get; set; }
 
         public string SobrenomeFuncionario { get; set; }
+
+        public DateTime DataNascimento { get; set; }
+
+        public int idUsuario { get; set; }
     }
 }

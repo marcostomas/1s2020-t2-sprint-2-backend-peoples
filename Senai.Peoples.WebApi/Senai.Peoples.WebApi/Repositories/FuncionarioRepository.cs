@@ -12,7 +12,7 @@ namespace Senai.Peoples.WebApi.Repositories
     {
         private string StringConexao = "Data Source=DEV801\\SQLEXPRESS; initial catalog= M_Peoples; user Id=sa; pwd=sa@132";
 
-        public void AtualizarIdCorpo(Funcionarios funcionario)
+        public void AtualizarIdCorpo(FuncionariosDomain funcionario)
         {
             using (SqlConnection conn = new SqlConnection(StringConexao))
             {
@@ -30,7 +30,7 @@ namespace Senai.Peoples.WebApi.Repositories
             }
         }
 
-        public void AtualizarIdUrl(int id, Funcionarios funcionario)
+        public void AtualizarIdUrl(int id, FuncionariosDomain funcionario)
         {
             using (SqlConnection conn = new SqlConnection(StringConexao))
             {
@@ -50,7 +50,7 @@ namespace Senai.Peoples.WebApi.Repositories
 
 
         //Buscar Funcionario Por ID
-        public Funcionarios BuscarPorId(int id)
+        public FuncionariosDomain BuscarPorId(int id)
         {
             using (SqlConnection conn = new SqlConnection(StringConexao))
             {
@@ -68,7 +68,7 @@ namespace Senai.Peoples.WebApi.Repositories
 
                     if(reader.Read())
                     {
-                        Funcionarios funcionario = new Funcionarios
+                        FuncionariosDomain funcionario = new FuncionariosDomain
                         {
                             idFuncionario = Convert.ToInt32(reader[0]),
                             NomeFuncionario = reader["NomeFuncionario"].ToString(),
@@ -84,7 +84,7 @@ namespace Senai.Peoples.WebApi.Repositories
         }
 
         //Buscar Funcionario Por Nome
-        public Funcionarios BuscarPorNome(string nome)
+        public FuncionariosDomain BuscarPorNome(string nome)
         {
             using (SqlConnection conn = new SqlConnection(StringConexao))
             {
@@ -102,7 +102,7 @@ namespace Senai.Peoples.WebApi.Repositories
 
                     if (reader.Read())
                     {
-                        Funcionarios funcionario = new Funcionarios
+                        FuncionariosDomain funcionario = new FuncionariosDomain
                         {
                             NomeFuncionario = reader["NomeFuncionario"].ToString(),
                             SobrenomeFuncionario = reader["SobrenomeFuncionario"].ToString()
@@ -117,7 +117,7 @@ namespace Senai.Peoples.WebApi.Repositories
         }
 
         //Buscar Funcionario Por Nome
-        public Funcionarios BuscarPorNomeCompleto(string nome)
+        public FuncionariosDomain BuscarPorNomeCompleto(string nome)
         {
             using (SqlConnection conn = new SqlConnection(StringConexao))
             {
@@ -135,7 +135,7 @@ namespace Senai.Peoples.WebApi.Repositories
 
                     if (reader.Read())
                     {
-                        Funcionarios funcionario = new Funcionarios
+                        FuncionariosDomain funcionario = new FuncionariosDomain
                         {
                             NomeFuncionario = reader["NomeFuncionario"].ToString(),
                             SobrenomeFuncionario = reader["SobrenomeFuncionario"].ToString()
@@ -150,7 +150,7 @@ namespace Senai.Peoples.WebApi.Repositories
         }
 
         //Cadastrar Funcionários
-        public void Cadastrar(Funcionarios funcionario)
+        public void Cadastrar(FuncionariosDomain funcionario)
         {
             using (SqlConnection conn = new SqlConnection(StringConexao))
             {
@@ -186,9 +186,9 @@ namespace Senai.Peoples.WebApi.Repositories
 
 
         //Listar Funcionarios Existentes
-        public List<Funcionarios> Listar()
+        public List<FuncionariosDomain> Listar()
         {
-            List<Funcionarios> funcionarios = new List<Funcionarios>();
+            List<FuncionariosDomain> funcionarios = new List<FuncionariosDomain>();
 
             using (SqlConnection conn = new SqlConnection(StringConexao))
             {
@@ -204,7 +204,7 @@ namespace Senai.Peoples.WebApi.Repositories
 
                     while(reader.Read())
                     {
-                        Funcionarios funcionario = new Funcionarios
+                        FuncionariosDomain funcionario = new FuncionariosDomain
                         {
                             idFuncionario = Convert.ToInt32(reader[0]),
                             NomeFuncionario = reader["NomeFuncionario"].ToString(),
